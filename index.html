@@ -40,12 +40,12 @@
     });
 
     const bedrock = L.tileLayer.wms("L.tileLayer.betterWms('https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer", {
-    layers: 'BGS.50k.Bedrock',
-    format: 'image/png',
-    transparent: true,
-    opacity: 0.5,
-    attribution: "BGS © NERC"
-});
+        layers: 'BGS.50k.Bedrock',
+        format: 'image/png',
+        transparent: false,
+        //opacity: 0.5,
+        attribution: "BGS © NERC"
+    });
 
     // Transform coordinates.
     const transformCoords = function(arr) {
