@@ -39,8 +39,17 @@
         minZoom: 10
     });
 
-    const bedrock = L.tileLayer.wms("L.tileLayer.betterWms('https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer", {
+    const bedrock = L.tileLayer.wms("https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer", {
         layers: 'BGS.50k.Bedrock',
+        format: 'image/png',
+        crs: crs,
+        transparent: false,
+        //opacity: 0.5,
+        attribution: "BGS © NERC"
+    });
+
+    const hillshade = L.tileLayer.wms("https://environment.data.gov.uk/spatialdata/lidar-composite-digital-terrain-model-dtm-1m/wms", {
+        layers: 'Lidar_Composite_DTM_1m',
         format: 'image/png',
         crs: crs,
         transparent: false,
