@@ -42,7 +42,7 @@
     const bedrock = L.tileLayer.wms("L.tileLayer.betterWms('https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer", {
         layers: 'BGS.50k.Bedrock',
         format: 'image/png',
-        crs: 'EPSG:27700',
+        crs: crs,
         transparent: false,
         //opacity: 0.5,
         attribution: "BGS © NERC"
@@ -56,7 +56,7 @@
     // Initialize the map.
     const mapOptions = {
         crs: crs,
-        layers: [ leisure, road, bedrock ],
+        layers: [ bedrock ],
         minZoom: 0,
         maxZoom: 13,
         center: transformCoords([ 348411, 116647 ]),
