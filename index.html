@@ -39,6 +39,14 @@
         minZoom: 10
     });
 
+    const bedrock = L.tileLayer.wms("L.tileLayer.betterWms('https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer", {
+    layers: 'BGS.50k.Bedrock',
+    format: 'image/png',
+    transparent: true,
+    opacity: 0.5,
+    attribution: "BGS © NERC"
+});
+
     // Transform coordinates.
     const transformCoords = function(arr) {
         return proj4('EPSG:27700', 'EPSG:4326', arr).reverse();
@@ -47,7 +55,7 @@
     // Initialize the map.
     const mapOptions = {
         crs: crs,
-        layers: [ leisure, road ],
+        layers: [ leisure, road, bedrock ],
         minZoom: 0,
         maxZoom: 13,
         center: transformCoords([ 348411, 116647 ]),
